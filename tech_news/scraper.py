@@ -5,7 +5,9 @@ import requests
 # Requisito 1
 def fetch(url):
     try:
-        response = requests.get(url, headers={"User-Agent": "Fake user-agent"}, timeout=3)
+        response = requests.get(
+            url, headers={"User-Agent": "Fake user-agent"}, timeout=3
+        )
         response.raise_for_status()
         time.sleep(1)
         return response.text
