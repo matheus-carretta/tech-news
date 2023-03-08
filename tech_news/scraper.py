@@ -4,7 +4,6 @@ from parsel import Selector
 from tech_news.database import create_news
 
 
-# Requisito 1
 def fetch(url):
     try:
         response = requests.get(
@@ -17,21 +16,18 @@ def fetch(url):
         return None
 
 
-# Requisito 2
 def scrape_novidades(html_content):
     selector = Selector(text=html_content)
     news_url = selector.css('.entry-header h2 a::attr(href)').getall()
     return news_url
 
 
-# Requisito 3
 def scrape_next_page_link(html_content):
     selector = Selector(text=html_content)
     next_page_url = selector.css('.next::attr(href)').get()
     return next_page_url
 
 
-# Requisito 4
 def scrape_noticia(html_content):
     selector = Selector(html_content)
     news_info = {
@@ -48,7 +44,6 @@ def scrape_noticia(html_content):
     return news_info
 
 
-# Requisito 5
 def get_tech_news(amount):
     baseURL = "https://blog.betrybe.com/"
     news = []
