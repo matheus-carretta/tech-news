@@ -1,3 +1,5 @@
+from pymongo import MongoClient
+from decouple import config
 import copy
 
 DB_HOST = config("DB_HOST", default="localhost")
